@@ -9,6 +9,10 @@ const ExpenseForm = () => {
     // const [date, setDate] = useState('')
 
     //same useState for different input variable
+    //when using a same useState we must be careful with the prev state
+    //as react only schedules the useState to execute in order it may not update 
+    //so we need to handle the prevState
+    
     const [expenseForm, setExpenseForm] = useState({
         enteredTitle: '',
         enteredAmount: '',
@@ -16,25 +20,34 @@ const ExpenseForm = () => {
     })
     const titleHandler = (event) => {
         // setTitle(event.target.value)
-        setExpenseForm({
-            ...expenseForm,
-            enteredTitle: event.target.value
+        // setExpenseForm({
+        //     ...expenseForm,
+        //     enteredTitle: event.target.value
+        // })
+        setExpenseForm((prevState) => {
+            return{...prevState, enteredTitle: event.target.value}
         })
     }
 
     const amountHandler = (event) => {
         // setAmount(event.target.value)
-        setExpenseForm({
-            ...expenseForm,
-            enteredAmount: event.target.value
+        // setExpenseForm({
+        //     ...expenseForm,
+        //     enteredAmount: event.target.value
+        // })
+        setExpenseForm((prevState) => {
+            return {...prevState, enteredAmount: event.target.value}
         })
     }
 
     const dateHandler = (event) => {
         // setDate(event.target.value)
-        setExpenseForm({
-            ...expenseForm,
-            enteredDate: event.target.value
+        // setExpenseForm({
+        //     ...expenseForm,
+        //     enteredDate: event.target.value
+        // })
+        setExpenseForm((prevState) => {
+            return {...prevState, enteredAmount: event.target.value}
         })
     }
     return <form>
