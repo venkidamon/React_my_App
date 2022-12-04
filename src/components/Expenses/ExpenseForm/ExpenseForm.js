@@ -4,53 +4,63 @@ import './ExpenseForm.css';
 const ExpenseForm = () => {
 
     //different usestate for different input variable
-    // const [title, setTitle] = useState('')
-    // const [amount, setAmount] = useState('')
-    // const [date, setDate] = useState('')
+    const [title, setTitle] = useState('')
+    const [amount, setAmount] = useState('')
+    const [date, setDate] = useState('')
 
     //same useState for different input variable
     //when using a same useState we must be careful with the prev state
     //as react only schedules the useState to execute in order it may not update 
     //so we need to handle the prevState
     
-    const [expenseForm, setExpenseForm] = useState({
-        enteredTitle: '',
-        enteredAmount: '',
-        enteredDate: '',
-    })
+    // const [expenseForm, setExpenseForm] = useState({
+    //     enteredTitle: '',
+    //     enteredAmount: '',
+    //     enteredDate: '',
+    // })
     const titleHandler = (event) => {
-        // setTitle(event.target.value)
+        setTitle(event.target.value)
         // setExpenseForm({
         //     ...expenseForm,
         //     enteredTitle: event.target.value
         // })
-        setExpenseForm((prevState) => {
-            return{...prevState, enteredTitle: event.target.value}
-        })
+        // setExpenseForm((prevState) => {
+        //     return{...prevState, enteredTitle: event.target.value}
+        // })
     }
 
     const amountHandler = (event) => {
-        // setAmount(event.target.value)
+        setAmount(event.target.value)
         // setExpenseForm({
         //     ...expenseForm,
         //     enteredAmount: event.target.value
         // })
-        setExpenseForm((prevState) => {
-            return {...prevState, enteredAmount: event.target.value}
-        })
+        // setExpenseForm((prevState) => {
+        //     return {...prevState, enteredAmount: event.target.value}
+        // })
     }
 
     const dateHandler = (event) => {
-        // setDate(event.target.value)
+        setDate(event.target.value)
         // setExpenseForm({
         //     ...expenseForm,
         //     enteredDate: event.target.value
         // })
-        setExpenseForm((prevState) => {
-            return {...prevState, enteredAmount: event.target.value}
-        })
+        // setExpenseForm((prevState) => {
+        //     return {...prevState, enteredAmount: event.target.value}
+        // })
     }
-    return <form>
+
+    const formHandler = (event) => {
+        event.preventDefault();
+        const formData = {
+            title: title,
+            amount: amount,
+            date: new Date(date)
+        }
+        console.log(formData)
+    }
+    return <form onSubmit={formHandler}>
         <div className='new-expense__controls'>
             <div className='new-expense__control'>
                 <label>Title</label>
