@@ -4,20 +4,38 @@ import './ExpenseForm.css';
 const ExpenseForm = () => {
 
     //different usestate for different input variable
-    const [title, setTitle] = useState('')
-    const [amount, setAmount] = useState('')
-    const [date, setDate] = useState('')
+    // const [title, setTitle] = useState('')
+    // const [amount, setAmount] = useState('')
+    // const [date, setDate] = useState('')
 
+    //same useState for different input variable
+    const [expenseForm, setExpenseForm] = useState({
+        enteredTitle: '',
+        enteredAmount: '',
+        enteredDate: '',
+    })
     const titleHandler = (event) => {
-        setTitle(event.target.value)
+        // setTitle(event.target.value)
+        setExpenseForm({
+            ...expenseForm,
+            enteredTitle: event.target.value
+        })
     }
 
     const amountHandler = (event) => {
-        setAmount(event.target.value)
+        // setAmount(event.target.value)
+        setExpenseForm({
+            ...expenseForm,
+            enteredAmount: event.target.value
+        })
     }
 
     const dateHandler = (event) => {
-        setDate(event.target.value)
+        // setDate(event.target.value)
+        setExpenseForm({
+            ...expenseForm,
+            enteredDate: event.target.value
+        })
     }
     return <form>
         <div className='new-expense__controls'>
