@@ -29,10 +29,12 @@ const App = () => {
     },
 
   ]
-
+  const collectNewExpense = (expenseData) => {
+    console.log(expenseData)
+  }
   return (
     <Card className='expenses'>
-      <NewExpenses/>  
+      <NewExpenses onNewExpense = {collectNewExpense}/>  
       <Expenses data = {expenses}></Expenses>
     </Card>
   )

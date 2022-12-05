@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './ExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
 
     //different usestate for different input variable
     const [title, setTitle] = useState('')
@@ -58,7 +58,9 @@ const ExpenseForm = () => {
             amount: amount,
             date: new Date(date)
         }
-        console.log(formData)
+        //we should include props and then we can access the 'onSaveExpenseForm' by the help of the function 
+        // declared we collect the data in newExpenses.js
+        props.onSaveExpenseForm(formData);
         setTitle('')
         setAmount('')
         setDate('')
