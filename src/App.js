@@ -10,7 +10,7 @@ var INITIAL_EXPENSES = [
     id: 1,
     title: 'Dress',
     amount: 2000,
-    date: new Date(2021, 8, 22)
+    date: new Date(2020, 8, 22)
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ var INITIAL_EXPENSES = [
     id: 3,
     title: 'travel',
     amount: 1500,
-    date: new Date(2021, 8, 12)
+    date: new Date(2019, 8, 12)
   }
 ]
 
