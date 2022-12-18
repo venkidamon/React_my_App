@@ -7,6 +7,7 @@ const ExpenseForm = (props) => {
     const [title, setTitle] = useState('')
     const [amount, setAmount] = useState('')
     const [date, setDate] = useState('')
+    const [ExpenseForm, setExpenseForm] = useState(false);
 
     //same useState for different input variable
     //when using a same useState we must be careful with the prev state
@@ -65,7 +66,9 @@ const ExpenseForm = (props) => {
         setAmount('')
         setDate('')
     }
-    return <form onSubmit={formHandler}>
+    
+    if(ExpenseForm){
+        return <form onSubmit={formHandler}>
         <div className='new-expense__controls'>
             <div className='new-expense__control'>
                 <label>Title</label>
@@ -81,9 +84,22 @@ const ExpenseForm = (props) => {
             </div>
         </div>
         <div className='new-expense__actions'>
+            <button onClick={x => setExpenseForm(false)}>Cancel</button>
+        </div>
+        <div className='new-expense__actions'>
             <button type='submit'>Add Expenses</button>
         </div>
+        
     </form>
+    }else{
+        return <div className='new-expense__controls'>
+            <div className='new-expense__actions'>
+                <button onClick ={x => setExpenseForm(true)}>Enable Expenses</button>
+            </div>
+        </div>
+    }
+
+    
 }
 
 export default ExpenseForm;
