@@ -9,16 +9,18 @@ const ExpenseItem = (props) => {
         setTitle(newTitle)
     }
     return (
-        <Card className="expense-item">
-           <ExpenseDate date = {props.date}></ExpenseDate>
-            <div className='expense-item__description'>
-                {/* this is known as state components {title} */}
-                <h2>{title}</h2> 
-                {/* This is known as dum components {props.amount} */}
-                <div className='expense-item__price'>{props.amount}</div>
-            </div>
-            <button onClick={eventHandler}>Change Title</button>
-        </Card>
+        <li>
+            <Card className="expense-item">
+                <ExpenseDate date={props.date}></ExpenseDate>
+                <div className='expense-item__description'>
+                    {/* this is known as state components {title} */}
+                    <h2>{title}</h2>
+                    {/* This is known as dum components {props.amount} */}
+                    <div className='expense-item__price'>{props.amount}</div>
+                </div>
+                <button onClick={eventHandler}>Change Title</button>
+            </Card>
+        </li>
     )
 }
 
